@@ -1,3 +1,17 @@
+Sprint 1:
+User Functionality
+    /register
+    /login
+    /logout
+
+    User
+    authentication
+    email / password
+    unitue emails
+    many playlists
+
+
+
 1. Plan application
 
 User
@@ -32,6 +46,6 @@ edits songs
 /logout
 
 ----
-It would be nice to have a nice UI/Theme 
+It would be nice to have a nice UI/Theme
 
 /playlists/deploy => which generates and deploys the static site to surge
