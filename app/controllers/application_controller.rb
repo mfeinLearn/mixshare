@@ -15,8 +15,9 @@ use Rack::Flash
   end
 
       helpers do
+          # !! -> converting a truthy or falsey value to actual true or false
           def logged_in?
-              !!current_user
+              !!current_user #true or false , but not truthy or falsey
           end
           # !! - is a way of converting truthy and falsey values to honest to god true or false
           #=> nil !nil => true => !true => false
@@ -33,7 +34,11 @@ use Rack::Flash
               # variable
               # this will return nil if their is not user id in the session
               # or it will return what ever user was found
-              @current_user ||= User.find(session[:user_id]) if session[:user_id]
+              # (||=) -> this is called or equals
+                ###--> the first time I call current_user it is going to see is their an instance variable of @user if their is not one
+                ##------> it is giong to make it equal to User.find(session[:user_id])
+                ##------> the second time I call current_user because @user is already populated it is not going to go to the database again
+              @user ||= User.find(session[:user_id]) if session[:user_id]
           end
 
           def authentication_required

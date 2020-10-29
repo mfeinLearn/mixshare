@@ -11,7 +11,7 @@ class UsersController < ApplicationController
         @user.password = params[:password]
 
         if @user.save
-            redirect "/"
+            redirect "/login"
         else
             erb :'users/new.html'
         end

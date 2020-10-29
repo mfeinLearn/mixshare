@@ -31,3 +31,13 @@ helpers
 
 
 * is a wild card so can be anything
+--------------
+
+Mounting the controller in config.ru:
+because I added a new controller to my application (sinatra application) does anyone know the next step that I would need to do in order to make sure that this controller is like actually loaded in the application when it boots up?
+You have to go to config.ru and mount the controller!!  (You are going to tell sinatra here is another rack middle ware / another controller that this application stack uses)
+
+authenticate the user:
+@user.authenticate is the method that active record provides me when I say has_secure_password to confirm what they typed in when encrypted matches their password. Once I know that the user is whom they clam to be I am just taking their user id and I am storing it in the session
+
+----------------------
