@@ -45,6 +45,16 @@ class PlaylistsController < ApplicationController
             erb :"playlists/new.html"
         end
     end
+
+    post '/playlists/:id/songs' do # this is a nested resources
+        @playlist = current_user.playlists.find(params[:id])
+        @song = @playlist.songs.build(:url => params[:url])
+        if @song.save
+            redirect "/playlists/#{@playlist.id}"
+        else
+            erb :"playlists/show.html"
+        end
+    end
 end
 # to get '/playlists/new' to work the other thing that I have to remember to do
 # (in sinatra) once I create a new controller you HAVE to remember to go to
