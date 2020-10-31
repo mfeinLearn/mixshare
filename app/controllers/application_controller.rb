@@ -43,8 +43,8 @@ use Rack::Flash
 
           def authentication_required
               if !logged_in?
-                  @error_msg = "You Must Be Logged in"
-                  # flash[:notice] = "You must be logged in."
+                  # @error_msg = "You Must Be Logged in"
+                  flash[:notice] = "You must be logged in."
                   redirect '/'
               end
           end

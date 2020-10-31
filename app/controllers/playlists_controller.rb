@@ -1,9 +1,18 @@
 class PlaylistsController < ApplicationController
+    ## The order of these routes matter!!! sanatra is going to pick the first route that matches the condition of the url pattern
+
+    ### NOTE: put your more pasific routes first/ at the beginning
     before '/playlists/*' do
         authentication_required
     end
 
+# <% %> - logic embeded ruby tag
+# <%= %> - the write embeded ruby tag
+# <% @playlists.each do |playlist|%> -
+### iterate over all of those playlists objects yeald them as an argumet playlist
+
     get '/playlists' do
+        # -> We use the user's has many playlists association in order to get all of the playlists that belong to the person to the person that is currently logged in
         # show someone all of their playlists
         # where will always return an array
         #@playlists = Playlist.where(:user => current_user)
@@ -14,6 +23,15 @@ class PlaylistsController < ApplicationController
     get '/playlists/new' do
         erb :"playlists/new.html"
     end
+
+    get '/playlists/:id' do # :id - is a route variable -> we intend for what ever data comes in as an :id (to this part of the url )
+        ## to be availible in params under this approperly named key(:id)
+        @playlist = current_user.playlists.find(params[:id])
+
+        erb :"playlists/show.html"
+
+    end
+
 
     post '/playlists' do
         @playlist = Playlist.new

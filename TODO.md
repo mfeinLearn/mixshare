@@ -4,6 +4,19 @@ User Functionality
     /login
     /logout
 
+Sprint 2: Basic playlist
+    New
+    Create
+    Index
+    Show
+
+Sprint 3: Adding Songs
+    Create the song model
+    wire up associations
+    add an add song form (new song) to playlist show
+
+
+-------------------
     User
     authentication
     email / password
@@ -25,7 +38,7 @@ playlist
 
 playlists
 id name user_id
-1 bite the dust
+1 bite the dust 1
 
 songs
     playlist_id url
